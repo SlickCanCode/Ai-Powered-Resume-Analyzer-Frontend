@@ -27,7 +27,7 @@ async function uploadFile(event) {
     // fileUploadLabel.appendChild(spinner);
 
     try {
-      const response = await fetch("http://localhost:8080/resume/upload", {
+      const response = await fetch("https://ai-powered-resume-analyzer-production-7cfe.up.railway.app/resume/upload", {
         method: "POST",
         body: formData
       });
@@ -69,7 +69,7 @@ async function analyzeResume() {
   toggleInnerHTML(analyzeResumeButton, '<div class="spinner-border text-light"><span class="visually-hidden">Loading...</span></div>')
   try {
     const response = await fetch(
-      `http://localhost:8080/resume/analyze/${resumeId}`,
+      `https://ai-powered-resume-analyzer-production-7cfe.up.railway.app/resume/analyze/${resumeId}`,
       {
         method: "POST",
         headers: {
