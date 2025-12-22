@@ -275,7 +275,7 @@ input[type="file"] {
     margin-bottom:0px ;
     padding-top:1rem;
     padding-left:1rem ;
-    font-family: 'Segoe UI';
+    font-family: "Inter", "Segoe UI", system-ui, sans-serif;
     font-weight: bold;
     font-size: 64px;
 }
@@ -359,7 +359,7 @@ textarea:focus {
     border: none;
     font-weight: 600;
     cursor: pointer;
-   font-size: 24px;
+   font-size: 20px;
 }
 
 .analyze-button:hover {
