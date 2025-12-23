@@ -18,13 +18,6 @@ async function uploadFile(event) {
     toggleInnerHTML(fileUploadLabel, innerHTML)
     fileUploadLabel.classList.add("uploading-state");
 
-    // let loadingText = document.createElement("div");
-    // loadingText.innerHTML = '<p class="Big-span" style="margin:0">Validating File</p>';
-    // let spinner = document.createElement("div");
-    // spinner.className = "spinner-border text-primary";
-    // spinner.innerHTML = '<span class="visually-hidden">Loading...</span>';
-    // fileUploadLabel.appendChild(loadingText);
-    // fileUploadLabel.appendChild(spinner);
 
     try {
       const response = await fetch("https://ai-powered-resume-analyzer-production-7cfe.up.railway.app/resume/upload", {
@@ -130,13 +123,10 @@ function showToast(message, type = "primary") {
   const toastEl = document.getElementById("appToast");
   const toastBody = document.getElementById("toastMessage");
 
-  // Set message
   toastBody.textContent = message;
 
-  // Reset & apply color
   toastEl.className = `toast align-items-center text-bg-${type} border-0`;
 
-  // Show toast
   const toast = new bootstrap.Toast(toastEl, {
     delay: 3000
   });
