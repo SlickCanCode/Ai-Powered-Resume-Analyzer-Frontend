@@ -1,5 +1,43 @@
 
+let token = localStorage.getItem("token");
+verifyToken(token);
 
+async function verifyToken(token) {
+
+  if (!token || token === "undefined") {
+    logoutUser();
+  }
+  try {
+    const response = await fetch('http://localhost:8080/user/verify-token', {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          "Authorization": `Bearer ${token}`
+        },
+      });
+      if (response.status === 401) {
+        console.log(token);
+        logoutUser();
+      }
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+function logoutUser() {
+  localStorage.removeItem("token");
+  localStorage.removeItem("user");
+  window.location.href = "/signin.html";
+}
+
+
+//get User info
+const user = JSON.parse(localStorage.getItem("user"));
+//set Welcome Header
+const welcomeHeader = document.querySelector(".welcome-header");
+welcomeHeader.innerHTML = `Welcome ${user.userName}`;
+
+//upload file
 const uploadedFile = document.getElementById("fileUpload");
 uploadedFile.addEventListener("change", uploadFile);
 const fileUploadLabel = document.querySelector(".file-upload");
@@ -7,6 +45,7 @@ const bigSpan = document.querySelector(".Big-span");
 
 async function uploadFile(event) {
   const files = event.target.files;
+  console.log(token);
 
   if (files && files.length > 0) {
         const file = files[0];
@@ -20,8 +59,11 @@ async function uploadFile(event) {
 
 
     try {
-      const response = await fetch("https://ai-powered-resume-analyzer-production-7cfe.up.railway.app/resume/upload", {
+      const response = await fetch(`http://localhost:8080/resume/${user.id}/upload`, {
         method: "POST",
+        headers: {
+          "Authorization": `Bearer ${token}`
+        },
         body: formData
       });
 
@@ -62,7 +104,7 @@ async function analyzeResume() {
   toggleInnerHTML(analyzeResumeButton, '<div class="spinner-border text-light"><span class="visually-hidden">Loading...</span></div>')
   try {
     const response = await fetch(
-      `https://ai-powered-resume-analyzer-production-7cfe.up.railway.app/resume/analyze/${resumeId}`,
+      `http://localhost:8080/resume/analyze/${resumeId}`,
       {
         method: "POST",
         headers: {

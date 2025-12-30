@@ -1,113 +1,73 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI-Powered Resume Analyzer - Upload</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body class="upload-body">
-    <a class="btn p-1 mt-4 mx-2 mb-1" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">
-    <img src="images/list.svg" alt="menu">
-</a>
-
-<div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
-  <div class="offcanvas-header">
-    <h5 class="offcanvas-title" id="offcanvasExampleLabel">ResuMatch</h5>
-    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-  </div>
-  <div class="offcanvas-body">
-   <div class="list-group">
-  <a href="/index.html" class="list-group-item list-group-item-action">Upload New Resume</a>
-  <a href="#" class="list-group-item list-group-item-action">Resume History</a>
-  <a href="#" class="list-group-item list-group-item-action">Settings</a>
-</div>
-  </div>
-</div>
-
-   <div class="analyze-container">
-      <h1 class="score-header">SCORE</h1>
-        <!-- Loader -->
-         <div class="top-container">
-         <div class="score-container">
-      <svg width="100" height="100" class="progress-ring">
-    <circle class="ring-bg" cx="50" cy="50" r="40" />
-    <circle class="ring-progress" cx="50" cy="50" r="40" />
-  </svg>
-
-      <div class="score-text" id="scoreText">0/100</div>
-    </div>
-    <div>
-      <p>Here is the analysis...</p>
-    </div>
-  </div>
-    <div class="analysis-container" >
-      <div >
-        <h3 >Strengths: </h3> 
-        <ul class="strengths">
-
-        </ul>
-      </div>
-      <div >
-        <h3 >Weaknesses: </h3> 
-        <ul class="weaknesses">
-
-        </ul>
-      </div>
-      <div >
-        <h3 >improvement suggestions: </h3> 
-        <ul class="improvementSuggestions">
-
-        </ul>
-      </div>
-    </div>
-    </div>
-    
-
-    <div class="upload-container">
-        <h1 class="welcome-header">Welcome User</h1>
-        <p class="upload-instruction">let's optimize your resume</p>
-
-        <div class="upload-area">
-        <input type="file" id="fileUpload">
-            <label class="file-upload" for="fileUpload"><img class="upload-icon" src="images/upload.svg" alt="upload"><div>
-        <p class="Big-span">Upload Resume file</p>
-        <p class="Small-span">or drop image from gallery</p>
+<html  lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Home</title>
+        <link rel="stylesheet" href="styles.css">
+    </head>
+    <body>
+        <section class="hero">
+        <div class="large-container">
+           <a href="signin.html"><button class="sign-in">SIGN IN</button></a> 
+            <h1 class="first-header">Analyze your resume <br>with AI-Powered insights</h1>
+            <h2 class="second-header">Optimize your resume, get ATS-ready and land your <br> dream job faster...</h2>
+           <a href="signup.html"> <button class="get-started">GET STARTED</button></a>
         </div>
-    </label>
-        
-        <p class="job-description">Job Description</p>
-        <textarea name="job-desription" id="jobDescription" placeholder="Paste job description here"></textarea>
-        <button class="analyze-button py-3">Analyze Resume</button>
-    </div>
-    </div>
-
-    <div class="toast-container position-fixed top-0 start-50 translate-middle-x p-3">
-      <div
-        id="appToast"
-        class="toast align-items-center text-bg-primary border-0"
-        role="alert"
-        aria-live="assertive"
-        aria-atomic="true">
-        <div class="d-flex">
-          <div class="toast-body" id="toastMessage">
-            Toast message here
-          </div>
-          <button
-            type="button"
-            class="btn-close btn-close-white me-2 m-auto"
-            data-bs-dismiss="toast"
-            aria-label="Close"
-          ></button>
+        </section>
+        <section class="features">
+        <div class="info">
+            <div class="div 1"> 
+                <h3>Smart Resume Analysis</h3> 
+                    <p>Get instant feedback on your resume's effectiveness</p>
+                <ul>
+                    <li>Analyzes keyword optimization for ATS systems</li>
+                    <li>Identifies missing crucial skills or experiences</li>
+                    <li>Suggests industry-specific improvements</li>
+                    </ul>
+            </div>
+            <div class="div 2">
+                <h3>Detailed Insights</h3> 
+                    <p>Provides readability score and improvement tips</p>
+                    <ul>
+                    <li>Measures impact of achievement statements</li>
+                    <li>Identifies missing crucial skills or experiences</li>
+                    <li>Compares against industry benchmarks</li>
+                </ul>
+                </div>
+            <div class="div 3">
+                <h3>Actionable Recommendations</h3> 
+                    <p>Receive specific suggestions to enhance your resume</p>
+                    <ul>
+                        <li>Offers word choice alternatives for stronger <br>impact</li>
+                    <li>Highlights areas needing quantifiable results</li>
+                    <li>Provides formatting optimization tips</li>
+                    </ul>
+                    
+            </div>
         </div>
-      </div>
-    </div>
+        </section>
 
-    
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
-<script src="index.js"></script>
-</body>
+        <section class="hiw">
+            <div class="hiw-container">
+                <h2>How it Works</h2>
+                <ol>
+                    <li>Upload Your Resume</li>
+                    <p>Upload your resume in PDF or DOCX format. Maximum file size is 10MB.</p>
+                    <li>Add Job Description (Optional)</li>
+                    <p>Paste the job description to receive tailored feedback and match analysis.</p>
+                    <li>Get Instant Analysis</li>
+                    <p>Our AI will analyze your resume and provide detailed feedback on:</p>
+                    <ul>
+                        <li>Content and formatting improvements</li>
+                        <li>Key skills and qualifications</li>
+                        <li>ATS optimization suggestions</li>
+                        <li>Job description alignment (if provided)</li>
+                        <li>Keyword and requirements matching (if job description is provided)</li>
+                        <li>Show you best jobs or applications that will be suitable for your resume on linkedin.</li>
+                    </ul>
+                </ol>
+            </div>
+        </section>
+    </body>
 </html>
