@@ -1,28 +1,9 @@
 
 let token = localStorage.getItem("token");
-verifyToken(token);
-
-async function verifyToken(token) {
 
   if (!token || token === "undefined") {
     logoutUser();
   }
-  try {
-    const response = await fetch('http://localhost:8080/user/verify-token', {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-          "Authorization": `Bearer ${token}`
-        },
-      });
-      if (response.status === 401) {
-        console.log(token);
-        logoutUser();
-      }
-  } catch (error) {
-    console.error(error);
-  }
-}
 
 function logoutUser() {
   localStorage.removeItem("token");
@@ -45,7 +26,6 @@ const bigSpan = document.querySelector(".Big-span");
 
 async function uploadFile(event) {
   const files = event.target.files;
-  console.log(token);
 
   if (files && files.length > 0) {
         const file = files[0];
@@ -59,7 +39,7 @@ async function uploadFile(event) {
 
 
     try {
-      const response = await fetch(`http://localhost:8080/resume/${user.id}/upload`, {
+      const response = await fetch(`http://localhost:8080/api/v1/users/${user.id}/resumes`, {
         method: "POST",
         headers: {
           "Authorization": `Bearer ${token}`
@@ -67,18 +47,19 @@ async function uploadFile(event) {
         body: formData
       });
 
-      if (!response.ok) {
-        throw new Error("Upload failed");
+      if (response.status === 401|| response.status === 404) {
+        logoutUser();
       }
-
       const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.message);
+      }
       document.querySelector(".Big-span").textContent = "Uploaded Successfully ✔️";
       document.querySelector(".spinner-border").remove();
       sessionStorage.setItem("resumeId", data.resumeId);
-      
-
-
     } catch (error) {
+      console.log(error);
       toggleInnerHTML(fileUploadLabel)
       fileUploadLabel.classList.remove("uploading-state");
       showToast(`Error uploading resume ${error}`, "danger");
@@ -86,9 +67,10 @@ async function uploadFile(event) {
       }
 }
 
+
+//Analyze resume
 const analyzeResumeButton = document.querySelector(".analyze-button");
 analyzeResumeButton.addEventListener("click", analyzeResume);
-
 const analysisSection = document.querySelector(".analyze-container");
 const uploadSection = document.querySelector(".upload-container");
 async function analyzeResume() {
@@ -104,11 +86,12 @@ async function analyzeResume() {
   toggleInnerHTML(analyzeResumeButton, '<div class="spinner-border text-light"><span class="visually-hidden">Loading...</span></div>')
   try {
     const response = await fetch(
-      `http://localhost:8080/resume/analyze/${resumeId}`,
+      `http://localhost:8080/api/v1/resumes/${resumeId}/analyze`,
       {
         method: "POST",
         headers: {
-          "Content-Type": "text/plain"
+          "Content-Type": "text/plain",
+          "Authorization": `Bearer ${token}`
         },
         body: jobDescription
       }
@@ -131,7 +114,6 @@ async function analyzeResume() {
   } catch (error) {   
       toggleInnerHTML(analyzeResumeButton)
     showToast(error, "danger");
-
   }
 }
 

@@ -10,7 +10,7 @@ document.getElementById("signinForm").addEventListener("submit", async function 
   };
 
   try {
-    const response = await fetch("http://localhost:8080/authenticate", {
+    const response = await fetch("http://localhost:8080/api/v1/auth/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
@@ -20,13 +20,11 @@ document.getElementById("signinForm").addEventListener("submit", async function 
     data = await response.json();
 
     if (response.status === 200) {
-      console.log("User loggedin successfully");
     localStorage.setItem("token", data.jwt);
     localStorage.setItem("user", JSON.stringify(data.user));
-
     window.location.href = "/upload.html";
 
-    } else {
+    } else{
         showToast(data.message, "danger");
     }
 
