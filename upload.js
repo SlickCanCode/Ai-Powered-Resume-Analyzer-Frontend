@@ -175,6 +175,40 @@ function toggleInnerHTML(element, newHTML = "none") {
   }
 }
 
+//Analysis Dropdown
 
+const strengthsContainer = document.querySelector(".one");
+const strengthsDropdown = document.querySelector(".str");
+const strengthsIcon = strengthsContainer.querySelector(".dd-svg");
+
+const weaknessContainer = document.querySelector(".two");
+const weaknessDropdown = document.querySelector(".weak");
+const weaknessIcon = weaknessContainer.querySelector(".dd-svg");
+
+const improvementsContainer = document.querySelector(".three");
+const improvementDropdown = document.querySelector(".impr");
+const improvementIcon = improvementsContainer.querySelector(".dd-svg");
+
+strengthsContainer.addEventListener("click", () => {
+  toggleDropdown(strengthsDropdown, strengthsIcon);
+});
+
+weaknessContainer.addEventListener("click", () => {
+  toggleDropdown(weaknessDropdown, weaknessIcon);
+});
+
+improvementsContainer.addEventListener("click", () => {
+  toggleDropdown(improvementDropdown, improvementIcon);
+});
+
+function toggleDropdown(dropdown, icon) {
+ const isOpen = dropdown.style.display === "block";
+
+dropdown.style.display = isOpen ? "none" : "block";
+
+icon.src = isOpen
+  ? "images/caret-right-fill.svg"   // closed state
+  : "images/caret-down-fill.svg";   // open state
+}
 
 

@@ -459,6 +459,9 @@ circle {
 
 .analysis-container  h3{
     font-size: 18px;
+    display: inline;
+    margin-bottom: 0px;
+    margin-left: 2px;
 }
 .analysis-container{
     display: flex;
@@ -467,7 +470,7 @@ circle {
     gap: 0.5rem;
     margin: 0.5rem;
 }
-.analysis-container div{
+.analysis-container .ac{
     background-color: #FFFFFF;
     color: black;
     padding: 0.5rem;
@@ -487,4 +490,20 @@ circle {
 }.analyze-container.is-visible {
   opacity: 1;
   transform: translateY(0);
+}
+.analysis-container .ac {
+    display: flex;
+    align-items: center;
+}
+.analysis-container img{
+    width: 20px;
+    height: 20px;
+    display: inline;
+}
+.dropdown {
+    background-color: #FFFFFF;
+    color: black;
+    padding: 0.5rem;
+    border-radius: 4px;
+    display: none;
 }
