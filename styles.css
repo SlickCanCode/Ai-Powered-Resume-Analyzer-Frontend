@@ -219,7 +219,6 @@ input:focus {
   box-shadow: 0 0 10px rgba(74, 144, 226, 0.5); /* custom glow effect */
 }
 .labels{
-    width: 300px;
     margin-bottom: 10px;
 }
 .foot-container{
