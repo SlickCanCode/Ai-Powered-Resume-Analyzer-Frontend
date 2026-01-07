@@ -18,6 +18,7 @@ const user = JSON.parse(localStorage.getItem("user"));
 const welcomeHeader = document.querySelector(".welcome-header");
 welcomeHeader.innerHTML = `Welcome ${user.userName}`;
 
+
 //upload file
 const uploadedFile = document.getElementById("fileUpload");
 uploadedFile.addEventListener("change", uploadFile);
@@ -105,6 +106,7 @@ async function analyzeResume() {
     setAnalysis(data.strengths, "strengths");
     setAnalysis(data.weaknesses, "weaknesses");
     setAnalysis(data.improvementSuggestions, "improvementSuggestions");
+    setJobLinks(data.jobRecommendations);
     analysisSection.classList.add("is-mounted");
     uploadSection.style.display = "none";
     requestAnimationFrame(() => {
@@ -140,6 +142,26 @@ function setAnalysis(analysis, name) {
    item.textContent = analysis[i];
    analysisPart.appendChild(item);
   }
+}
+
+function setJobLinks(list) {
+  const ul = document.querySelector(".jobMatches");
+
+  // Clear existing content (important if re-rendering)
+  ul.innerHTML = "";
+
+  list.forEach(item => {
+    const li = document.createElement("li");
+
+    const a = document.createElement("a");
+    a.href = item.link;
+    a.textContent = item.platform;
+    a.target = "_blank"; // open in new tab
+    a.rel = "noopener noreferrer";
+
+    li.appendChild(a);
+    ul.appendChild(li);
+  });
 }
 
 //Toast caller 
@@ -189,6 +211,10 @@ const improvementsContainer = document.querySelector(".three");
 const improvementDropdown = document.querySelector(".impr");
 const improvementIcon = improvementsContainer.querySelector(".dd-svg");
 
+const jobMatchContainer = document.querySelector(".four");
+const jobMatchDropdown = document.querySelector(".job");
+const jobMatchIcon = jobMatchContainer.querySelector(".dd-svg");
+
 strengthsContainer.addEventListener("click", () => {
   toggleDropdown(strengthsDropdown, strengthsIcon);
 });
@@ -200,6 +226,10 @@ weaknessContainer.addEventListener("click", () => {
 improvementsContainer.addEventListener("click", () => {
   toggleDropdown(improvementDropdown, improvementIcon);
 });
+
+jobMatchContainer.addEventListener("click", () => {
+  toggleDropdown(jobMatchDropdown, jobMatchIcon);
+})
 
 function toggleDropdown(dropdown, icon) {
  const isOpen = dropdown.style.display === "block";

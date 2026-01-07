@@ -375,7 +375,7 @@ textarea:focus {
         margin: 0 15%;
         padding: 20px 15px;
          margin-top: -65px; 
-        
+        margin-bottom: 5rem;
     }
     .upload-area{
        padding: 20px 15%;
@@ -493,6 +493,7 @@ circle {
 .analysis-container .ac {
     display: flex;
     align-items: center;
+    cursor: pointer;
 }
 .analysis-container img{
     width: 20px;
@@ -505,4 +506,21 @@ circle {
     padding: 0.5rem;
     border-radius: 4px;
     display: none;
+}
+
+.resume-name{
+    border-radius: 10px;
+    padding: 0.5rem;
+    color: #000000;
+    background-color: #FFFFFF;
+}
+.resume-name h1{
+    font-size: 1rem;
+    font-weight: bold;
+    margin-left: 0.5rem;
+    margin-bottom: 0px;
+    max-width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
