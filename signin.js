@@ -27,7 +27,7 @@ document.getElementById("signinForm").addEventListener("submit", async function 
     } else{
         showToast(data.message, "danger");
     }
-
+    signinButton.disabled = false;
   } catch (error) {
     console.error("Error:", error);
   }

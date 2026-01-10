@@ -2,8 +2,13 @@ const signupButton = document.querySelector(".signup-button");
 
 document.getElementById("signup-form").addEventListener("submit", async function (e) {
   e.preventDefault();
-    signupButton.disabled = true;
+    
 
+    if (document.getElementById("password").value != document.getElementById("confirmPass").value) {
+      showToast("Password does not Match", "danger");
+      return;
+    }
+    signupButton.disabled = true;
   const user = {
     userName: document.getElementById("username").value,
     email: document.getElementById("email").value,
@@ -29,7 +34,7 @@ document.getElementById("signup-form").addEventListener("submit", async function
     } else {
         showToast(data.message[0], "danger");
     }
-
+    signupButton.disabled = false;
   } catch (error) {
     console.error("Error:", error);
   }

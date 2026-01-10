@@ -14,6 +14,7 @@ function logoutUser() {
 
 //get User info
 const user = JSON.parse(localStorage.getItem("user"));
+console.log(user);
 //set Welcome Header
 const welcomeHeader = document.querySelector(".welcome-header");
 welcomeHeader.innerHTML = `Welcome ${user.userName}`;

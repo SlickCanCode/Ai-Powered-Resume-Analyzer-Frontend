@@ -1,3 +1,8 @@
+input{
+    box-sizing: border-box;
+  width: 100%;
+}
+
 body{
     background-color: #0D0D0D;
     color: white;
@@ -79,7 +84,18 @@ button{
     inset -4px -4px 8px rgba(0, 0, 0, 0.1);
   transform: translateY(1px);
 }
-
+button{
+        box-shadow:
+    inset -4px -4px 8px rgba(255, 255, 255, 0.646),
+    inset 4px 4px 8px rgba(0, 0, 0, 0.1);
+    transition: all 0.2s ease;
+}
+button:active{
+      box-shadow:
+    inset 4px 4px 8px rgba(255, 255, 255, 0.8),
+    inset -4px -4px 8px rgba(0, 0, 0, 0.1);
+  transform: translateY(1px);
+}
 
 @media (min-width: 761px) {
     
@@ -276,7 +292,9 @@ input[type="file"] {
     padding-left:1rem ;
     font-family: "Inter", "Segoe UI", system-ui, sans-serif;
     font-weight: bold;
-    font-size: 64px;
+    font-size: 3rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .upload-instruction{
     padding-left: 1.3rem;
@@ -523,4 +541,89 @@ circle {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+
+.profile-pic{
+    height: 4.5rem;
+    width: 4.5rem;
+    background-color: white;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-bottom: 2rem;
+}
+#profile-section, #form-section{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 1.5rem 2.5rem;
+}
+.name-view, .email-view{
+    background-color: #D9D9D9;
+    width: 100%;
+    height: 3rem;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+    display: flex;
+    flex-direction: column;
+    padding: 0.3rem 0.7rem;
+}
+
+.name-view > p, .email-view > p {
+    font-size: 0.7rem;
+    margin: 0;
+    color: black;
+}
+.name-view input, .email-view input{
+    font-size: 0.9rem;
+    height: 1.5rem;
+    padding-left: 0px;
+    border: none;
+    box-sizing: border-box;
+  width: 100%;
+
+}
+.name-view input:focus, .email-view input:focus{
+    border: none;
+    box-shadow: none;
+}
+.nameForm-view, .emailForm-view {
+    padding-bottom: 0px;
+    background-color: white;
+}
+p.user-name, p.user-email {
+    font-size: 0.9rem;
+    font-weight: bold;
+        white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.edit-button, .save-button, .logout-button{
+    font-weight: bold;
+    padding: 0.5rem 1rem;
+    border-radius: 10px;
+    border: none;
+    color: white;
+    background-color: #0047AB;
+}
+.logout-button{
+    margin-top: 5rem;
+}
+.profile-form {
+    display: none;
+}
+
+.no-resumes{
+    display: flex;
+    justify-content: center;
+    height: 100vw;
+    align-items: center;
+}
+.no-resumes >h1 {
+    font-weight: bold;
+      background: linear-gradient(90deg, #4A90E2, #000000);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }

@@ -108,11 +108,21 @@ function setResumes(resumes) {
 
     }
     analysisDropdown(clone);
+    container.innerHTML = "";
     container.appendChild(clone);
   });
 
+  }else{
+    showNoHistory();
   }
 
+}
+
+function showNoHistory(){
+  const noResumes = document.createElement("div");
+  noResumes.classList.add("no-resumes");
+  noResumes.innerHTML = "<h1>No Resumes Yet</h1>"
+  container.appendChild(noResumes);
 }
 
 function analysisDropdown(element) {

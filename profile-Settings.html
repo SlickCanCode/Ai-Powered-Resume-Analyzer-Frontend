@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI-Powered Resume Analyzer - Upload</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="upload-body">
+    <a class="btn p-1 mt-4 mx-2 mb-1" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">
+    <img src="images/list.svg" alt="menu">
+</a>
+
+<div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title" id="offcanvasExampleLabel">ResuMatch</h5>
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body">
+   <div class="list-group">
+  <a href="/upload.html" class="list-group-item list-group-item-action">Upload New Resume</a>
+  <a href="/history.html" class="list-group-item list-group-item-action">Resume History</a>
+  <a href="/profile-Settings.html" class="list-group-item list-group-item-action">Settings</a>
+</div>
+  </div>
+</div>  
+
+    <div class="upload-container profile-view">
+      <div id="profile-section">
+        <div class="profile-pic">
+          <img src="images/generic-pp.png" alt="">
+        </div>
+        <div class="name-view">
+          <p>Username:</p>
+          <p class="user-name"></p>
+        </div>
+        <div class="email-view">
+          <p>Email:</p>
+          <p class="user-email"></p>
+        </div>
+        <button class="btn-primary edit-button">Edit Profile</button>
+        <button class="btn-primary logout-button">Log Out <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-arrow-right" viewBox="0 0 16 16">
+          <path fill-rule="evenodd" d="M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0z"/>
+          <path fill-rule="evenodd" d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708z"/>
+        </svg>
+        </button>
+      </div>
+    </div>
+
+        <div class="upload-container profile-form">
+      <form id="form-section">
+        <div class="profile-pic">
+          <img src="images/generic-pp.png" alt="">
+        </div>
+        <form id="profileEdit">
+        <div class="name-view nameForm-view">
+          <p>Username:</p>
+          <input id="user-name" type="text"></input>
+        </div>
+        <div class="email-view emailForm-view">
+          <p>Email:</p>
+          <input id="user-email"></input>
+        </div>
+        <button class="btn-primary save-button" type="submit">Save Profile</button>
+        </form>
+    </div>
+
+
+
+
+    <div class="toast-container position-fixed top-0 start-50 translate-middle-x p-3">
+      <div
+        id="appToast"
+        class="toast align-items-center text-bg-primary border-0"
+        role="alert"
+        aria-live="assertive"
+        aria-atomic="true">
+        <div class="d-flex">
+          <div class="toast-body" id="toastMessage">
+            Toast message here
+          </div>
+          <button
+            type="button"
+            class="btn-close btn-close-white me-2 m-auto"
+            data-bs-dismiss="toast"
+            aria-label="Close"
+          ></button>
+        </div>
+      </div>
+    </div>
+
+    
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
+<script src="profile.js"></script>
+</body>
+</html>
