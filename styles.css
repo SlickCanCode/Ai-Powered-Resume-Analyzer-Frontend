@@ -263,7 +263,9 @@ input:focus {
     .signup{
         width: 100%;
         height: 100vh;
-        border-radius: 0px;
+        border-top-right-radius: 5rem;
+        border-top-left-radius: 5rem;
+        margin-top: 2.5rem;
     }
 }
 
