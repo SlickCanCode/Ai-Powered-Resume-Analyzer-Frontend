@@ -10,7 +10,7 @@ document.getElementById("signinForm").addEventListener("submit", async function 
   };
 
   try {
-    const response = await fetch("http://localhost:8080/api/v1/auth/login", {
+    const response = await fetch("http://ai-powered-resume-analyzer-production-36ed.up.railway.app/api/v1/auth/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
