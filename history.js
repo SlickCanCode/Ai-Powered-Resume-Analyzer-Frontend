@@ -62,7 +62,7 @@ const container = document.getElementById("history");
 async function getResumes() {
 
  try {
-      const response = await fetch(`http://ai-powered-resume-analyzer-production-36ed.up.railway.app/api/v1/users/${user.id}/resumes`, {
+      const response = await fetch(`https://ai-powered-resume-analyzer-production-36ed.up.railway.app/api/v1/users/${user.id}/resumes`, {
         method: "GET",
         headers: {
           "Authorization": `Bearer ${token}`

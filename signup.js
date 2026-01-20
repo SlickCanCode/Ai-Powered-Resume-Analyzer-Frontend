@@ -16,7 +16,7 @@ document.getElementById("signup-form").addEventListener("submit", async function
   };
 
   try {
-    const response = await fetch("http://ai-powered-resume-analyzer-production-36ed.up.railway.app/api/v1/users", {
+    const response = await fetch("https://ai-powered-resume-analyzer-production-36ed.up.railway.app/api/v1/users", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"

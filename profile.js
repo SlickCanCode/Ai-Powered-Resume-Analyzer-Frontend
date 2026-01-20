@@ -42,7 +42,7 @@ form.addEventListener("submit",async function (e) {
     email: document.getElementById("user-email").value,
   };
      try {
-      const response = await fetch(`http://ai-powered-resume-analyzer-production-36ed.up.railway.app/api/v1/users/${user.id}`, {
+      const response = await fetch(`https://ai-powered-resume-analyzer-production-36ed.up.railway.app/api/v1/users/${user.id}`, {
         method: "PUT",
         headers: {
           "Authorization": `Bearer ${token}`,
