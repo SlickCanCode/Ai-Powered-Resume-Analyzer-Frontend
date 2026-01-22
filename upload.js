@@ -41,7 +41,7 @@ async function uploadFile(event) {
 
 
     try {
-      const response = await fetch(`https://ai-powered-resume-analyzer-production-36ed.up.railway.app/api/v1/users/${user.id}/resumes`, {
+      const response = await fetch(`https://ai-powered-resume-analyzer-production-8110.up.railway.app/api/v1/users/${user.id}/resumes`, {
         method: "POST",
         headers: {
           "Authorization": `Bearer ${token}`
@@ -88,7 +88,7 @@ async function analyzeResume() {
   toggleInnerHTML(analyzeResumeButton, '<div class="spinner-border text-light"><span class="visually-hidden">Loading...</span></div>')
   try {
     const response = await fetch(
-      `https://ai-powered-resume-analyzer-production-36ed.up.railway.app/api/v1/resumes/${resumeId}/analyze`,
+      `https://ai-powered-resume-analyzer-production-8110.up.railway.app/api/v1/resumes/${resumeId}/analyze`,
       {
         method: "POST",
         headers: {
